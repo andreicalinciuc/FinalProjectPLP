@@ -14,7 +14,6 @@ public:
 
     void ReadFile();
     void CheckComand();
-    void CreateCSSFile();
 
 };
 
