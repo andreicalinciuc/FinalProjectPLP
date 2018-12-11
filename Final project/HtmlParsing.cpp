@@ -7,11 +7,21 @@
 #include <cstring>
 #include<vector>
 #include <fstream>
-
+#include <algorithm>
 using namespace std;
 
+
+string ReplaceAll(std::string str, const std::string& from, const std::string& to) {
+    size_t start_pos = 0;
+    while((start_pos = str.find(from, start_pos)) != std::string::npos) {
+        str.replace(start_pos, from.length(), to);
+        start_pos += to.length(); // Handles case where 'to' is a substring of 'from'
+    }
+    return str;
+}
+
 void HtmlParsing::ReadFile() {
-    FILE* fp = fopen("/home/andrei/Documents/k/facultatate/Final project/date.txt", "r");
+    FILE* fp = fopen("/home/andrei/Documents/FinalProjectPLP/Final project/date.txt", "r");
     if (fp == NULL)
         exit(EXIT_FAILURE);
     char* list = NULL;
@@ -26,23 +36,24 @@ void HtmlParsing::ReadFile() {
 }
 
 
-
 void HtmlParsing::CheckComand() {
     
    char*  str=line;
     char *token = strtok(str,"\n");
     ofstream myfile;
-    myfile.open ("/home/andrei/Documents/k/facultatate/Final project/test.html");
+    myfile.open ("/home/andrei/Documents/FinalProjectPLP/Final project/test.html");
     myfile<<"<!DOCTYPE html>\n"<<endl<<
             "<html>\n"<<endl<<
             "<head>"<<endl<<
-            "<link rel=\"stylesheet\" type=\"text/css\" href=\"inputcss.css\">"<<endl<<
-        "</head>"<<endl<<
-        "<body>"<<endl;
+            "</head>"<<endl<<
+             "<body>"<<endl;
+
     while (token)
     {
-        cout<<token[0]<<endl;
-            myfile<<"<pre>"<<token<<"</pre>"<<endl;
+            string str=  ReplaceAll(token,"<","&lt;");
+            str=  ReplaceAll(str,"/>","/&gt;");
+
+        myfile<<"<pre>"<<str<<"</pre>"<<endl;
             token = strtok(NULL,"\n");
     }
     myfile << "\n"
@@ -51,15 +62,6 @@ void HtmlParsing::CheckComand() {
     myfile.close();
 }
 
-void HtmlParsing::CreateCSSFile() {
-    ofstream myfile;
-    myfile.open ("/home/andrei/Documents/k/facultatate/Final project/inputcss.css");
 
-    myfile<<".k{\n"
-            "    content: \"<k>\";\n"
-            "}";
-    myfile.close();
-
-}
 
 

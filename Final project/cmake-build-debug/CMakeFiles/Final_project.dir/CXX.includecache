@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/andrei/Documents/k/facultatate/Final project/HtmlParsing.cpp
+/home/andrei/Documents/FinalProjectPLP/Final project/HtmlParsing.cpp
 HtmlParsing.h
-/home/andrei/Documents/k/facultatate/Final project/HtmlParsing.h
+/home/andrei/Documents/FinalProjectPLP/Final project/HtmlParsing.h
 iostream
 -
 cstring
@@ -17,8 +17,16 @@ vector
 -
 fstream
 -
+algorithm
+-
 
-/home/andrei/Documents/k/facultatate/Final project/HtmlParsing.h
+/home/andrei/Documents/FinalProjectPLP/Final project/HtmlParsing.h
 vector
 -
+
+/home/andrei/Documents/FinalProjectPLP/Final project/main.cpp
+iostream
+-
+HtmlParsing.h
+/home/andrei/Documents/FinalProjectPLP/Final project/HtmlParsing.h
 

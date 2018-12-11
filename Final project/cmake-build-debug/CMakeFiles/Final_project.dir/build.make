@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/56/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/andrei/clion-2018.2.6/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/56/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/andrei/clion-2018.2.6/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/andrei/Documents/k/facultatate/Final project"
+CMAKE_SOURCE_DIR = "/home/andrei/Documents/FinalProjectPLP/Final project"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/andrei/Documents/k/facultatate/Final project/cmake-build-debug"
+CMAKE_BINARY_DIR = "/home/andrei/Documents/FinalProjectPLP/Final project/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Final_project.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/Final_project.dir/flags.make
 
 CMakeFiles/Final_project.dir/main.cpp.o: CMakeFiles/Final_project.dir/flags.make
 CMakeFiles/Final_project.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/andrei/Documents/k/facultatate/Final project/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Final_project.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Final_project.dir/main.cpp.o -c "/home/andrei/Documents/k/facultatate/Final project/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/andrei/Documents/FinalProjectPLP/Final project/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Final_project.dir/main.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Final_project.dir/main.cpp.o -c "/home/andrei/Documents/FinalProjectPLP/Final project/main.cpp"
 
 CMakeFiles/Final_project.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Final_project.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/andrei/Documents/k/facultatate/Final project/main.cpp" > CMakeFiles/Final_project.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/andrei/Documents/FinalProjectPLP/Final project/main.cpp" > CMakeFiles/Final_project.dir/main.cpp.i
 
 CMakeFiles/Final_project.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Final_project.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/andrei/Documents/k/facultatate/Final project/main.cpp" -o CMakeFiles/Final_project.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/andrei/Documents/FinalProjectPLP/Final project/main.cpp" -o CMakeFiles/Final_project.dir/main.cpp.s
 
 CMakeFiles/Final_project.dir/HtmlParsing.cpp.o: CMakeFiles/Final_project.dir/flags.make
 CMakeFiles/Final_project.dir/HtmlParsing.cpp.o: ../HtmlParsing.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/andrei/Documents/k/facultatate/Final project/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Final_project.dir/HtmlParsing.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Final_project.dir/HtmlParsing.cpp.o -c "/home/andrei/Documents/k/facultatate/Final project/HtmlParsing.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/andrei/Documents/FinalProjectPLP/Final project/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Final_project.dir/HtmlParsing.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Final_project.dir/HtmlParsing.cpp.o -c "/home/andrei/Documents/FinalProjectPLP/Final project/HtmlParsing.cpp"
 
 CMakeFiles/Final_project.dir/HtmlParsing.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Final_project.dir/HtmlParsing.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/andrei/Documents/k/facultatate/Final project/HtmlParsing.cpp" > CMakeFiles/Final_project.dir/HtmlParsing.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/andrei/Documents/FinalProjectPLP/Final project/HtmlParsing.cpp" > CMakeFiles/Final_project.dir/HtmlParsing.cpp.i
 
 CMakeFiles/Final_project.dir/HtmlParsing.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Final_project.dir/HtmlParsing.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/andrei/Documents/k/facultatate/Final project/HtmlParsing.cpp" -o CMakeFiles/Final_project.dir/HtmlParsing.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/andrei/Documents/FinalProjectPLP/Final project/HtmlParsing.cpp" -o CMakeFiles/Final_project.dir/HtmlParsing.cpp.s
 
 # Object files for target Final_project
 Final_project_OBJECTS = \
@@ -95,7 +95,7 @@ Final_project: CMakeFiles/Final_project.dir/main.cpp.o
 Final_project: CMakeFiles/Final_project.dir/HtmlParsing.cpp.o
 Final_project: CMakeFiles/Final_project.dir/build.make
 Final_project: CMakeFiles/Final_project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/andrei/Documents/k/facultatate/Final project/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Final_project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/andrei/Documents/FinalProjectPLP/Final project/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Final_project"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Final_project.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/Final_project.dir/clean:
 .PHONY : CMakeFiles/Final_project.dir/clean
 
 CMakeFiles/Final_project.dir/depend:
-	cd "/home/andrei/Documents/k/facultatate/Final project/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/andrei/Documents/k/facultatate/Final project" "/home/andrei/Documents/k/facultatate/Final project" "/home/andrei/Documents/k/facultatate/Final project/cmake-build-debug" "/home/andrei/Documents/k/facultatate/Final project/cmake-build-debug" "/home/andrei/Documents/k/facultatate/Final project/cmake-build-debug/CMakeFiles/Final_project.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/andrei/Documents/FinalProjectPLP/Final project/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/andrei/Documents/FinalProjectPLP/Final project" "/home/andrei/Documents/FinalProjectPLP/Final project" "/home/andrei/Documents/FinalProjectPLP/Final project/cmake-build-debug" "/home/andrei/Documents/FinalProjectPLP/Final project/cmake-build-debug" "/home/andrei/Documents/FinalProjectPLP/Final project/cmake-build-debug/CMakeFiles/Final_project.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Final_project.dir/depend
 

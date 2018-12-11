@@ -1,85 +1,60 @@
 module IMP-SYNTAX
- syntax AExp ::= Id 
-               | Int
-               | String
-               | "++" Id
-               | AExp "/" AExp          [left]
-               | AExp "*" AExp          [left]
-                > AExp "+" AExp         [left, strict]
-               | AExp "-" AExp          [left, strict]
-               | "(" AExp ")"           [bracket]
+  syntax AExp ::= Int // builtin
+                | Id  // builtin
+                > left:
+                  AExp "*" AExp [left]
+                | AExp "/" AExp [left]
+                > left:
+                  AExp "+" AExp [left, strict]
+                | AExp "-" AExp [left]
+                | "(" AExp ")"  [bracket]
 
- syntax BExp ::= Bool
-                | AExp "<=" AExp    [strict]
-                | AExp "<" AExp     [strict]
-                | AExp ">=" AExp    [strict]
-                | AExp ">" AExp     [strict]
-                | "not" BExp        [strict]
-                | "!" BExp          [strict]
-                | BExp "&&" BExp    [strict(1)]
-                | "(" BExp ")"      [bracket]
+  syntax BExp ::= Bool // builtin
+                | "!" BExp
+                | BExp "&&" BExp [non-assoc]
+                | AExp "<=" AExp [strict]
+                | AExp "<"  AExp
+                | "(" BExp ")" [bracket]
 
- syntax Block ::= "{" "}"
-                | "{" Stmt "}"
-                | Id "=" AExp ";"             [strict(2)]
+  syntax Block ::= "{" Stmt "}"
+                 | "{" "}"
 
- syntax Stmt ::= Block
-               | Id "=" AExp ";"    [strict(2)]
-               | "int" Id ";"
-               | "return" ";"
-               | "return" AExp ";"             [strict]
-               | AExp ";"                      [strict]
-               | "if" BExp Block "else" Block  [strict(1)]
-               | "while" BExp Block 
-               > Stmt Stmt  [left]               
-
- syntax Pgm ::= "int" Ids ";" Stmt
- syntax Ids ::= List {Id,","}
+  syntax Stmt ::= "int" Id ";"
+                |Id "=" AExp ";"  [strict(2)]
+                | "if" BExp Block "else" Block [strict(1)]
+                | "while" BExp Block
+                > Stmt Stmt [right]
 endmodule
 
-module IMP 
- imports IMP-SYNTAX
+module IMP
+  imports IMP-SYNTAX
 
- configuration <T>
-    <k> $PGM:Pgm </k>
-    <env> .Map </env>
-    <store> .Map </store>
- </T>
+  syntax KResult ::= Bool | Int
 
-// Rezultatul returnat de program
- syntax KResult ::= Int | Bool
+  configuration <k> $PGM:Stmt </k>
+                <env> .Map </env>
 
- rule <k> X:Id => I ...</k> <env>... X |-> I ...</env>
- rule <k> int (X,Xs => Xs);_ </k> <env> Rho:Map (.Map => X|->0) </env>
+  rule I1:Int <= I2:Int => I1 <=Int I2
+  rule I1:Int + I2:Int => I1 +Int I2
 
- rule int .Ids; S => S
+  rule S1:Stmt S2:Stmt => S1 ~> S2
 
-// Statementuri
- rule S1:Stmt S2:Stmt => S1 ~> S2
+  rule <k> int X:Id ; => . ...</k>
+       <env> M:Map (.Map => X |-> 0) </env>
+       when notBool(X in keys(M))
 
- // Operatii 
- rule I1:Int + I2:Int => I1 +Int I2
- rule I1:Int - I2:Int => I1 -Int I2
- rule I1:Int * I2:Int => I1 *Int I2
- rule I1:Int / I2:Int => I1 /Int I2
+  rule <k> (X:Id = V:Int ; => .)  ...</k>
+       <env>... X |-> (_ => V)  ...</env>
 
- // Operatii boolene
- rule I1 <= I2 => I1 <=Int I2
- rule ! T => notBool T
- rule true && B => B
- rule false && _ => false
+  rule <k> (X:Id => V) ...</k>
+       <env>... X |-> V:Int ...</env>
 
- // Blocuri
- rule {} => .
- rule {S} => S
+  rule if true  B1:Block else B2:Block => B1 
+  rule if false B1:Block else B2:Block => B2 
 
- // Asigniere
- rule <k> X = I:Int; => . ...</k> <env>... X |-> (_ => I) ...</env>
+  rule { S:Stmt } => S
+  rule { } => .
 
- // If
- rule if (true)  S else _ => S
- rule if (false) _ else S => S
-
- // while
- rule while (B) S => if (B) {S while (B) S} else {}
-endmodule
+  rule while B:BExp { S:Stmt } =>
+       if B { S while B { S } } else { }
+endmodul
