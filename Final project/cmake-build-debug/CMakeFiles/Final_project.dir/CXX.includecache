@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/andrei/Documents/k/facultatate/Final project/HtmlParsing.cpp
+HtmlParsing.h
+/home/andrei/Documents/k/facultatate/Final project/HtmlParsing.h
+iostream
+-
+cstring
+-
+vector
+-
+fstream
+-
+
+/home/andrei/Documents/k/facultatate/Final project/HtmlParsing.h
+vector
+-
+
