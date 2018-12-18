@@ -56,6 +56,7 @@ void HtmlParsing::CheckComand() {
         myfile<<"<pre>"<<str<<"</pre>"<<endl;
             token = strtok(NULL,"\n");
     }
+
     myfile << "\n"
               "</body>\n"<<endl<<
               "</html>"<<endl;
