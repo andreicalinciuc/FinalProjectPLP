@@ -41,7 +41,7 @@ void HtmlParsing::CheckComand() {
    char*  str=line;
     char *token = strtok(str,"\n");
     ofstream myfile;
-    myfile.open ("/home/andrei/Documents/FinalProjectPLP/Final project/test.html");
+    myfile.open ("../test.html");
     myfile<<"<!DOCTYPE html>\n"<<endl<<
             "<html>\n"<<endl<<
             "<head>"<<endl<<
