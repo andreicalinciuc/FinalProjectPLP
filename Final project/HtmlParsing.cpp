@@ -43,12 +43,14 @@ void HtmlParsing::CheckComand() {
     myfile.open ("../test.html");
     myfile<<"<!DOCTYPE html>\n"<<endl<<
             "<html>\n"<<endl<<
-            "<head>"<<endl<<
+            "<head>"<<endl<<"<link rel=\"stylesheet\" type=\"text/css\" href=\"test.css\">"
+
             "</head>"<<endl<<
              "<body>"<<endl;
     myfile<<"<pre>";
     while (token)
     {
+                cout<<token<<endl;
             string str=  ReplaceAll(token,"<","&lt;");
             str=  ReplaceAll(str,"/>","/&gt;");
 
