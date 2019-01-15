@@ -21,7 +21,7 @@ string ReplaceAll(std::string str, const std::string& from, const std::string& t
 }
 
 void HtmlParsing::ReadFile() {
-    FILE* fp = fopen("/home/andrei/Documents/FinalProjectPLP/Final project/date.txt", "r");
+    FILE* fp = fopen("../date.txt", "r");
     if (fp == NULL)
         exit(EXIT_FAILURE);
     char* list = NULL;
@@ -32,7 +32,6 @@ void HtmlParsing::ReadFile() {
 
     }
     fclose(fp);
-
 }
 
 
@@ -47,15 +46,16 @@ void HtmlParsing::CheckComand() {
             "<head>"<<endl<<
             "</head>"<<endl<<
              "<body>"<<endl;
-
+    myfile<<"<pre>";
     while (token)
     {
             string str=  ReplaceAll(token,"<","&lt;");
             str=  ReplaceAll(str,"/>","/&gt;");
 
-        myfile<<"<pre>"<<str<<"</pre>"<<endl;
+        myfile<<str<<endl;
             token = strtok(NULL,"\n");
     }
+    myfile<<"</pre>";
 
     myfile << "\n"
               "</body>\n"<<endl<<

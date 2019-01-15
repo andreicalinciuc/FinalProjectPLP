@@ -5,53 +5,55 @@
 <head>
 </head>
 <body>
-<pre>module IMP-SYNTAX</pre>
-<pre>  syntax AExp ::= Int // builtin</pre>
-<pre>                | Id  // builtin</pre>
-<pre>                > left:</pre>
-<pre>                  AExp "*" AExp [left]</pre>
-<pre>                | AExp "/" AExp [left]</pre>
-<pre>                > left:</pre>
-<pre>                  AExp "+" AExp [left, strict]</pre>
-<pre>                | AExp "-" AExp [left]</pre>
-<pre>                | "(" AExp ")"  [bracket]</pre>
-<pre>  syntax BExp ::= Bool // builtin</pre>
-<pre>                | "!" BExp</pre>
-<pre>                | BExp "&&" BExp [non-assoc]</pre>
-<pre>                | AExp "&lt;=" AExp [strict]</pre>
-<pre>                | AExp "&lt;"  AExp</pre>
-<pre>                | "(" BExp ")" [bracket]</pre>
-<pre>  syntax Block ::= "{" Stmt "}"</pre>
-<pre>                 | "{" "}"</pre>
-<pre>  syntax Stmt ::= "int" Id ";"</pre>
-<pre>                |Id "=" AExp ";"  [strict(2)]</pre>
-<pre>                | "if" BExp Block "else" Block [strict(1)]</pre>
-<pre>                | "while" BExp Block</pre>
-<pre>                > Stmt Stmt [right]</pre>
-<pre>endmodule</pre>
-<pre>module IMP</pre>
-<pre>  imports IMP-SYNTAX</pre>
-<pre>  syntax KResult ::= Bool | Int</pre>
-<pre>  configuration &lt;k> $PGM:Stmt &lt;/k></pre>
-<pre>                &lt;env> .Map &lt;/env></pre>
-<pre>  rule I1:Int &lt;= I2:Int => I1 &lt;=Int I2</pre>
-<pre>  rule I1:Int + I2:Int => I1 +Int I2</pre>
-<pre>  rule S1:Stmt S2:Stmt => S1 ~> S2</pre>
-<pre>  rule &lt;k> int X:Id ; => . ...&lt;/k></pre>
-<pre>       &lt;env> M:Map (.Map => X |-> 0) &lt;/env></pre>
-<pre>       when notBool(X in keys(M))</pre>
-<pre>  rule &lt;k> (X:Id = V:Int ; => .)  ...&lt;/k></pre>
-<pre>       &lt;env>... X |-> (_ => V)  ...&lt;/env></pre>
-<pre>  rule &lt;k> (X:Id => V) ...&lt;/k></pre>
-<pre>       &lt;env>... X |-> V:Int ...&lt;/env></pre>
-<pre>  rule if true  B1:Block else B2:Block => B1 </pre>
-<pre>  rule if false B1:Block else B2:Block => B2 </pre>
-<pre>  rule { S:Stmt } => S</pre>
-<pre>  rule { } => .</pre>
-<pre>  rule while B:BExp { S:Stmt } =></pre>
-<pre>       if B { S while B { S } } else { }</pre>
-<pre>endmodul</pre>
-
+<pre>module IMP-SYNTAX
+  syntax AExp ::= Int // builtin
+                | Id  // builtin
+                > left:
+                  AExp "*" AExp [left]
+                | AExp "/" AExp [left]
+                > left:
+                  AExp "+" AExp [left, strict]
+                | AExp "-" AExp [left]
+                | "(" AExp ")"  [bracket]
+###
+//
+  syntax BExp ::= Bool // builtin
+                | "!" BExp
+                | BExp "&&" BExp [non-assoc]
+                | AExp "&lt;=" AExp [strict]
+                | AExp "&lt;"  AExp
+                | "(" BExp ")" [bracket]
+  syntax Block ::= "{" Stmt "}"
+                 | "{" "}"
+  syntax Stmt ::= "int" Id ";"
+                |Id "=" AExp ";"  [strict(2)]
+                | "if" BExp Block "else" Block [strict(1)]
+                | "while" BExp Block
+                > Stmt Stmt [right]
+endmodule
+module IMP
+  imports IMP-SYNTAX
+  syntax KResult ::= Bool | Int
+  configuration &lt;k> $PGM:Stmt &lt;/k>
+                &lt;env> .Map &lt;/env>
+  rule I1:Int &lt;= I2:Int => I1 &lt;=Int I2
+  rule I1:Int + I2:Int => I1 +Int I2
+  rule S1:Stmt S2:Stmt => S1 ~> S2
+  rule &lt;k> int X:Id ; => . ...&lt;/k>
+       &lt;env> M:Map (.Map => X |-> 0) &lt;/env>
+       when notBool(X in keys(M))
+  rule &lt;k> (X:Id = V:Int ; => .)  ...&lt;/k>
+       &lt;env>... X |-> (_ => V)  ...&lt;/env>
+  rule &lt;k> (X:Id => V) ...&lt;/k>
+       &lt;env>... X |-> V:Int ...&lt;/env>
+  rule if true  B1:Block else B2:Block => B1 
+  rule if false B1:Block else B2:Block => B2 
+  rule { S:Stmt } => S
+  rule { } => .
+  rule while B:BExp { S:Stmt } =>
+       if B { S while B { S } } else { }
+endmodul
+</pre>
 </body>
 
 </html>

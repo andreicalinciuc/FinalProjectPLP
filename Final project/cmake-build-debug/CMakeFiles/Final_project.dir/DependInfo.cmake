@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/andrei/Documents/FinalProjectPLP/Final project/HtmlParsing.cpp" "/home/andrei/Documents/FinalProjectPLP/Final project/cmake-build-debug/CMakeFiles/Final_project.dir/HtmlParsing.cpp.o"
-  "/home/andrei/Documents/FinalProjectPLP/Final project/main.cpp" "/home/andrei/Documents/FinalProjectPLP/Final project/cmake-build-debug/CMakeFiles/Final_project.dir/main.cpp.o"
+  "/home/andrei/Desktop/FinalProjectPLP/Final project/HtmlParsing.cpp" "/home/andrei/Desktop/FinalProjectPLP/Final project/cmake-build-debug/CMakeFiles/Final_project.dir/HtmlParsing.cpp.o"
+  "/home/andrei/Desktop/FinalProjectPLP/Final project/main.cpp" "/home/andrei/Desktop/FinalProjectPLP/Final project/cmake-build-debug/CMakeFiles/Final_project.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/andrei/Documents/FinalProjectPLP/Final project/HtmlParsing.cpp
+/home/andrei/Desktop/FinalProjectPLP/Final project/HtmlParsing.cpp
 HtmlParsing.h
-/home/andrei/Documents/FinalProjectPLP/Final project/HtmlParsing.h
+/home/andrei/Desktop/FinalProjectPLP/Final project/HtmlParsing.h
 iostream
 -
 cstring
@@ -20,7 +20,7 @@ fstream
 algorithm
 -
 
-/home/andrei/Documents/FinalProjectPLP/Final project/HtmlParsing.h
+/home/andrei/Desktop/FinalProjectPLP/Final project/HtmlParsing.h
 vector
 -
 
