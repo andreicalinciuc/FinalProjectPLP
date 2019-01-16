@@ -1,61 +1,74 @@
+//title: A simple k script
+
+//description: Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats are fats i like to pets them they like to meow back.
+
+//<introduction>
+///description: Shove bum in owner's face like camera lens plop down in the middle where everybody walks yet cough. You are a captive audience while sitting on the toilet, pet me eat an easter feather as if it were a bird then burp victoriously.
+//</introduction>
+
+//<syntax>
+///description: Fight an alligator and win intently stare at the same spot soft kitty warm kitty little ball of furr so ptracy.
 module IMP-SYNTAX
-  syntax AExp ::= Int // builtin
-                | Id  // builtin
-                > left:
-                  AExp "*" AExp [left]
-                | AExp "/" AExp [left]
-                > left:
-                  AExp "+" AExp [left, strict]
-                | AExp "-" AExp [left]
-                | "(" AExp ")"  [bracket]
-###
-//
-  syntax BExp ::= Bool // builtin
-                | "!" BExp
-                | BExp "&&" BExp [non-assoc]
-                | AExp "<=" AExp [strict]
-                | AExp "<"  AExp
-                | "(" BExp ")" [bracket]
+    syntax AExp ::=  Int  // builtin
+	        |  Id  // builtin
+	        |  String  // builtin
+	        |  "++"  Id
+	        |  Id  "++"
+	        >  left:
+	        AExp "*" AExp [left]
+	        | AExp "/" AExp [left]
+	        >  left:
+	        AExp "+" AExp [left, strict]
+	        | AExp "-" AExp [left]
+	        |  "(" AExp ")" [bracket]
+   endmodule
+ //</syntax>
+ 
+//<definition>
+///description: Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.
+   module IMP
+       imports IMP-SYNTAX  
+       syntax KResult ::=  Bool  |  Int  |  String
+          
+    configuration <k> $PGM:Stmt </k>
+        <env> .Map </env>
+        <store> .Map </store>
+        <stack> .List </stack>
+        <in  stream="stdin"> .List </in>
+        <out  stream="stdout"> .List </out>
+    
+    rule I1:Int  <= I2:Int  => I1 <=Int I2
+    rule I1:Int  + I2:Int  => I1 +Int I2
+      
+    rule S1:Stmt S2:Stmt => S1 ~> S2
+    
+    endmodule
+//</definition>
 
-  syntax Block ::= "{" Stmt "}"
-                 | "{" "}"
+//<configuration>
+///description: Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.
+ configuration 
+    <threads>
+    <thread>
+        <k> $PGM:Stmt </k>
+        <control>
+            <fstack> .List </fstack>
+        </control>
+        <env> .Map </env>
+        <store> .Map </store>
+        <holds> .Map </holds>
+    </thread>
+</threads>
+<env> .Map </env>
+<store> .Map </store>
+<stack> .List </stack>
+<in  stream="stdin"> .List </in>
+<out  stream="stdout"> .List </out>
+//</configuration>
 
-  syntax Stmt ::= "int" Id ";"
-                |Id "=" AExp ";"  [strict(2)]
-                | "if" BExp Block "else" Block [strict(1)]
-                | "while" BExp Block
-                > Stmt Stmt [right]
-endmodule
-
-module IMP
-  imports IMP-SYNTAX
-
-  syntax KResult ::= Bool | Int
-
-  configuration <k> $PGM:Stmt </k>
-                <env> .Map </env>
-
-  rule I1:Int <= I2:Int => I1 <=Int I2
-  rule I1:Int + I2:Int => I1 +Int I2
-
-  rule S1:Stmt S2:Stmt => S1 ~> S2
-
-  rule <k> int X:Id ; => . ...</k>
-       <env> M:Map (.Map => X |-> 0) </env>
-       when notBool(X in keys(M))
-
-  rule <k> (X:Id = V:Int ; => .)  ...</k>
-       <env>... X |-> (_ => V)  ...</env>
-
-  rule <k> (X:Id => V) ...</k>
-       <env>... X |-> V:Int ...</env>
-
-  rule if true  B1:Block else B2:Block => B1 
-  rule if false B1:Block else B2:Block => B2 
-
-  rule { S:Stmt } => S
-  rule { } => .
-
-  rule while B:BExp { S:Stmt } =>
-       if B { S while B { S } } else { }
-endmodul
+//<rule>
+///description: Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats.
+rule <k> (X:Id => V) ...</k>
+        <env>... X |-> L:Int ...</env>
+        <store>... L |-> V:Int ...</store>
+//</rule>

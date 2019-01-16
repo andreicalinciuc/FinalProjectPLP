@@ -13,8 +13,6 @@ iostream
 -
 cstring
 -
-vector
--
 fstream
 -
 algorithm
