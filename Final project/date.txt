@@ -1,14 +1,12 @@
-//title: A simple k script
 
-//description: Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats are fats i like to pets them they like to meow back.
+//-Description: Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats are fats i like to pets them they like to meow back.
 
-//<introduction>
-///description: Shove bum in owner's face like camera lens plop down in the middle where everybody walks yet cough. You are a captive audience while sitting on the toilet, pet me eat an easter feather as if it were a bird then burp victoriously.
-//</introduction>
+//-introduction -
+///Description: Shove bum in owner's face like camera lens plop down in the middle where everybody walks yet cough. You are a captive audience while sitting on the toilet, pet me eat an easter feather as if it were a bird then burp victoriously.
 
-//<syntax>
-///description: Fight an alligator and win intently stare at the same spot soft kitty warm kitty little ball of furr so ptracy.
-module IMP-SYNTAX
+//-syntax -
+///Description: Fight an alligator and win intently stare at the same spot soft kitty warm kitty little ball of furr so ptracy.
+ module IMP-SYNTAX
     syntax AExp ::=  Int  // builtin
 	        |  Id  // builtin
 	        |  String  // builtin
@@ -22,10 +20,9 @@ module IMP-SYNTAX
 	        | AExp "-" AExp [left]
 	        |  "(" AExp ")" [bracket]
    endmodule
- //</syntax>
- 
-//<definition>
-///description: Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.
+
+//-definition -
+///Description: Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.
    module IMP
        imports IMP-SYNTAX  
        syntax KResult ::=  Bool  |  Int  |  String
@@ -43,10 +40,9 @@ module IMP-SYNTAX
     rule S1:Stmt S2:Stmt => S1 ~> S2
     
     endmodule
-//</definition>
 
-//<configuration>
-///description: Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.
+//-configuration -
+///Description: Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.
  configuration 
     <threads>
     <thread>
@@ -64,11 +60,9 @@ module IMP-SYNTAX
 <stack> .List </stack>
 <in  stream="stdin"> .List </in>
 <out  stream="stdout"> .List </out>
-//</configuration>
 
-//<rule>
-///description: Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats.
+//-rule -
+///Description: Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats.
 rule <k> (X:Id => V) ...</k>
         <env>... X |-> L:Int ...</env>
         <store>... L |-> V:Int ...</store>
-//</rule>

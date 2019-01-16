@@ -3,78 +3,77 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="test.css"></head>
+<link rel="stylesheet" type="text/css" href="Design.css"></head>
 <body>
-<pre>//title: A simple k script
-//description: Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats are fats i like to pets them they like to meow back.
-//&lt;introduction>
-///description: Shove bum in owner's face like camera lens plop down in the middle where everybody walks yet cough. You are a captive audience while sitting on the toilet, pet me eat an easter feather as if it were a bird then burp victoriously.
-//&lt;/introduction>
-//&lt;syntax>
-///description: Fight an alligator and win intently stare at the same spot soft kitty warm kitty little ball of furr so ptracy.
-module IMP-SYNTAX
-    syntax AExp ::=  Int  // builtin
-	        |  Id  // builtin
-	        |  String  // builtin
-	        |  "++"  Id
-	        |  Id  "++"
-	        >  left:
-	        AExp "*" AExp [left]
-	        | AExp "/" AExp [left]
-	        >  left:
-	        AExp "+" AExp [left, strict]
-	        | AExp "-" AExp [left]
-	        |  "(" AExp ")" [bracket]
-   endmodule
- //&lt;/syntax>
- 
-//&lt;definition>
-///description: Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.
-   module IMP
-       imports IMP-SYNTAX  
-       syntax KResult ::=  Bool  |  Int  |  String
-          
-    configuration &lt;k> $PGM:Stmt &lt;/k>
-        &lt;env> .Map &lt;/env>
-        &lt;store> .Map &lt;/store>
-        &lt;stack> .List &lt;/stack>
-        &lt;in  stream="stdin"> .List &lt;/in>
-        &lt;out  stream="stdout"> .List &lt;/out>
-    
-    rule I1:Int  &lt;= I2:Int  => I1 &lt;=Int I2
-    rule I1:Int  + I2:Int  => I1 +Int I2
-      
-    rule S1:Stmt S2:Stmt => S1 ~> S2
-    
-    endmodule
-//&lt;/definition>
-//&lt;configuration>
-///description: Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.
- configuration 
-    &lt;threads>
-    &lt;thread>
-        &lt;k> $PGM:Stmt &lt;/k>
-        &lt;control>
-            &lt;fstack> .List &lt;/fstack>
-        &lt;/control>
-        &lt;env> .Map &lt;/env>
-        &lt;store> .Map &lt;/store>
-        &lt;holds> .Map &lt;/holds>
-    &lt;/thread>
-&lt;/threads>
-&lt;env> .Map &lt;/env>
-&lt;store> .Map &lt;/store>
-&lt;stack> .List &lt;/stack>
-&lt;in  stream="stdin"> .List &lt;/in>
-&lt;out  stream="stdout"> .List &lt;/out>
-//&lt;/configuration>
-//&lt;rule>
-///description: Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats.
-rule &lt;k> (X:Id => V) ...&lt;/k>
-        &lt;env>... X |-> L:Int ...&lt;/env>
-        &lt;store>... L |-> V:Int ...&lt;/store>
-//&lt;/rule>
-</pre>
+<h3>Description</h3>
+<pre> Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats are fats i like to pets them they like to meow back.</pre>
+<h3>introduction</h3>
+<h1>Description</h1>
+<h4> Shove bum in owner's face like camera lens plop down in the middle where everybody walks yet cough. You are a captive audience while sitting on the toilet, pet me eat an easter feather as if it were a bird then burp victoriously.</h4>
+<h3>syntax</h3>
+<h1>Description</h1>
+<h4> Fight an alligator and win intently stare at the same spot soft kitty warm kitty little ball of furr so ptracy.</h4>
+<pre> module IMP-SYNTAX</pre>
+<pre>    syntax AExp ::=  Int  // builtin</pre>
+<pre>        |  Id  // builtin</pre>
+<pre>        |  String  // builtin</pre>
+<pre>        |  "++"  Id</pre>
+<pre>        |  Id  "++"</pre>
+<pre>        >  left:</pre>
+<pre>        AExp "*" AExp [left]</pre>
+<pre>        | AExp "/" AExp [left]</pre>
+<pre>        >  left:</pre>
+<pre>        AExp "+" AExp [left, strict]</pre>
+<pre>        | AExp "-" AExp [left]</pre>
+<pre>        |  "(" AExp ")" [bracket]</pre>
+<pre>   endmodule</pre>
+<h3>definition</h3>
+<h1>Description</h1>
+<h4> Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.</h4>
+<pre>   module IMP</pre>
+<pre>       imports IMP-SYNTAX  </pre>
+<pre>       syntax KResult ::=  Bool  |  Int  |  String</pre>
+<pre>          </pre>
+<pre>    configuration &lt;k> $PGM:Stmt &lt;/k></pre>
+<pre>        &lt;env> .Map &lt;/env></pre>
+<pre>        &lt;store> .Map &lt;/store></pre>
+<pre>        &lt;stack> .List &lt;/stack></pre>
+<pre>        &lt;in  stream="stdin"> .List &lt;/in></pre>
+<pre>        &lt;out  stream="stdout"> .List &lt;/out></pre>
+<pre>    </pre>
+<pre>    rule I1:Int  &lt;= I2:Int  => I1 &lt;=Int I2</pre>
+<pre>    rule I1:Int  + I2:Int  => I1 +Int I2</pre>
+<pre>      </pre>
+<pre>    rule S1:Stmt S2:Stmt => S1 ~> S2</pre>
+<pre>    </pre>
+<pre>    endmodule</pre>
+<h3>configuration</h3>
+<h1>Description</h1>
+<h4> Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.</h4>
+<pre> configuration </pre>
+<pre>    &lt;threads></pre>
+<pre>    &lt;thread></pre>
+<pre>        &lt;k> $PGM:Stmt &lt;/k></pre>
+<pre>        &lt;control></pre>
+<pre>            &lt;fstack> .List &lt;/fstack></pre>
+<pre>        &lt;/control></pre>
+<pre>        &lt;env> .Map &lt;/env></pre>
+<pre>        &lt;store> .Map &lt;/store></pre>
+<pre>        &lt;holds> .Map &lt;/holds></pre>
+<pre>    &lt;/thread></pre>
+<pre>&lt;/threads></pre>
+<pre>&lt;env> .Map &lt;/env></pre>
+<pre>&lt;store> .Map &lt;/store></pre>
+<pre>&lt;stack> .List &lt;/stack></pre>
+<pre>&lt;in  stream="stdin"> .List &lt;/in></pre>
+<pre>&lt;out  stream="stdout"> .List &lt;/out></pre>
+<h3>rule</h3>
+<h1>Description</h1>
+<h4> Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats.</h4>
+<pre> &lt;k> (X:Id => V) ...&lt;/k></pre>
+<pre>        &lt;env>... X |-> L:Int ...&lt;/env></pre>
+<pre>        &lt;store>... L |-> V:Int ...&lt;/store></pre>
+
 </body>
 
 </html>

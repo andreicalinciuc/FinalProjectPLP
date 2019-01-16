@@ -1,0 +1,141 @@
+
+
+//-Description
+ Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats are fats i like to pets them they like to meow back.
+
+
+
+//-introduction
+
+///Description
+ Shove bum in owner's face like camera lens plop down in the middle where everybody walks yet cough. You are a captive audience while sitting on the toilet, pet me eat an easter feather as if it were a bird then burp victoriously.
+
+
+
+//-syntax
+
+///Description
+ Fight an alligator and win intently stare at the same spot soft kitty warm kitty little ball of furr so ptracy.
+
+ module IMP-SYNTAX
+
+    syntax AExp ::=  Int  // builtin
+
+        |  Id  // builtin
+
+        |  String  // builtin
+
+        |  "++"  Id
+
+        |  Id  "++"
+
+        >  left:
+
+        AExp "*" AExp [left]
+
+        | AExp "/" AExp [left]
+
+        >  left:
+
+        AExp "+" AExp [left, strict]
+
+        | AExp "-" AExp [left]
+
+        |  "(" AExp ")" [bracket]
+
+   endmodule
+
+
+
+//-definition
+
+///Description
+ Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.
+
+   module IMP
+
+       imports IMP-SYNTAX  
+
+       syntax KResult ::=  Bool  |  Int  |  String
+
+          
+
+    configuration <k> $PGM:Stmt </k>
+
+        <env> .Map </env>
+
+        <store> .Map </store>
+
+        <stack> .List </stack>
+
+        <in  stream="stdin"> .List </in>
+
+        <out  stream="stdout"> .List </out>
+
+    
+
+    rule I1:Int  <= I2:Int  => I1 <=Int I2
+
+    rule I1:Int  + I2:Int  => I1 +Int I2
+
+      
+
+    rule S1:Stmt S2:Stmt => S1 ~> S2
+
+    
+
+    endmodule
+
+
+
+//-configuration
+
+///Description
+ Catty ipsum get my claw stuck in the dog's ear for scratch my tummy actually i hate you now fight me.
+
+ configuration 
+
+    <threads>
+
+    <thread>
+
+        <k> $PGM:Stmt </k>
+
+        <control>
+
+            <fstack> .List </fstack>
+
+        </control>
+
+        <env> .Map </env>
+
+        <store> .Map </store>
+
+        <holds> .Map </holds>
+
+    </thread>
+
+</threads>
+
+<env> .Map </env>
+
+<store> .Map </store>
+
+<stack> .List </stack>
+
+<in  stream="stdin"> .List </in>
+
+<out  stream="stdout"> .List </out>
+
+
+
+//-rule
+
+///Description
+ Tuxedo cats always looking dapper drool have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat cats.
+
+ <k> (X:Id => V) ...</k>
+
+        <env>... X |-> L:Int ...</env>
+
+        <store>... L |-> V:Int ...</store>
